@@ -1,60 +1,65 @@
-# AI / ML Practice Repository
+# AI / ML Practical Learning Journey 🚀
 
-This repository documents my step-by-step journey learning Artificial Intelligence
-and Machine Learning through **practical implementation**.
+This repository documents my step-by-step practical learning of Artificial Intelligence and Machine Learning.
 
 ---
 
 ## 📅 Day 1 – Data Loading & Visualization
-**Topics covered:**
-- Loaded CSV data using Pandas
-- Performed basic data analysis
-- Created new features (Average marks)
-- Visualized data using Matplotlib bar charts
+- Loaded CSV data using Pandas  
+- Explored dataset structure  
+- Created a new feature (Average marks)  
+- Visualized student performance using a bar chart  
 
-**Files:**
-- `student_analysis.py`
+**File:** `student_analysis.py`
 
 ---
 
 ## 📅 Day 2 – Exploratory Data Analysis (EDA)
-**Topics covered:**
-- Dataset inspection using `info()` and `describe()`
-- Identified missing values using `isnull()`
-- Handled missing data using mean imputation (future-safe)
-- Recalculated features after cleaning
-- Visualized distributions using box plots
+- Inspected dataset using `info()` and `describe()`  
+- Detected missing values  
+- Handled missing data using mean imputation  
+- Visualized score distributions using box plots  
 
-**Files:**
-- `eda_analysis.py`
+**File:** `eda_analysis.py`
 
 ---
 
-## 📅 Day 3 – First Machine Learning Model
-**Topics covered:**
-- Feature and target selection
-- Train–test split
-- Linear Regression model training
-- Model evaluation using Mean Absolute Error (MAE)
-- Interpreting model coefficients
+## 📅 Day 3 – First Machine Learning Model (Regression)
+- Separated features and target  
+- Applied train-test split  
+- Trained a Linear Regression model  
+- Evaluated using Mean Absolute Error (MAE)  
+- Interpreted model coefficients  
 
-**Files:**
-- `ml_model.py`
+**File:** `ml_model.py`
 
 ---
 
-## 🛠 Tech Stack Used
-- Python
-- Pandas
-- NumPy
-- Matplotlib
-- Scikit-learn
-- Git & GitHub
+## 📅 Day 4 – Classification with Logistic Regression
+- Converted numerical averages into Pass/Fail labels  
+- Trained a Logistic Regression classifier  
+- Evaluated model using Accuracy  
+- Analyzed predictions using Confusion Matrix  
+- Checked class distribution before training  
+
+**File:** `classification_model.py`
 
 ---
 
-## 🎯 Learning Approach
-- Learn by building
-- Debug real errors
-- Follow industry-safe practices
-- Focus on understanding, not memorization
+## 📅 Day 5 – KNN with Feature Scaling
+- Learned why scaling is important for distance-based models  
+- Standardized features using `StandardScaler`  
+- Trained K-Nearest Neighbors (KNN) classifier  
+- Evaluated model accuracy and confusion matrix  
+
+**File:** `knn_model.py`
+
+---
+
+## 📅 Day 6 – Model Comparison & Hyperparameter Tuning
+- Compared Logistic Regression and KNN models  
+- Tested multiple K values in KNN  
+- Selected best K based on accuracy  
+- Learned basics of hyperparameter tuning  
+
+**File:** `model_comparison.py`
