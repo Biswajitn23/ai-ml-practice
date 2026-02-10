@@ -63,3 +63,14 @@ This repository documents my step-by-step practical learning of Artificial Intel
 - Learned basics of hyperparameter tuning  
 
 **File:** `model_comparison.py`
+
+---
+
+## 📅 Day 7 – Cross-Validation
+- Learned why a single train-test split can be unreliable  
+- Used cross-validation for more stable model evaluation  
+- Evaluated Logistic Regression and KNN using multiple folds  
+- Understood limitations of cross-validation on small datasets  
+- Adjusted K in KNN to match training fold size  
+
+**File:** `cross_validation.py`
