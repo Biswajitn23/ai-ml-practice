@@ -74,3 +74,13 @@ This repository documents my step-by-step practical learning of Artificial Intel
 - Adjusted K in KNN to match training fold size  
 
 **File:** `cross_validation.py`
+
+---
+
+## 📅 Day 8 – Overfitting vs Underfitting
+- Learned difference between overfitting and underfitting  
+- Compared training vs testing accuracy  
+- Observed effect of different K values in KNN  
+- Understood model complexity trade-offs  
+
+**File:** `overfitting_demo.py`
