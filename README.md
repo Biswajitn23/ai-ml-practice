@@ -84,3 +84,13 @@ This repository documents my step-by-step practical learning of Artificial Intel
 - Understood model complexity trade-offs  
 
 **File:** `overfitting_demo.py`
+
+---
+
+## 📅 Day 9 – Bias vs Variance
+- Learned concept of bias and variance  
+- Understood relationship with model complexity  
+- Demonstrated bias-variance tradeoff using KNN  
+- Visualized training and testing error curves  
+
+**File:** `bias_variance_demo.py`
