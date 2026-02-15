@@ -94,3 +94,13 @@ This repository documents my step-by-step practical learning of Artificial Intel
 - Visualized training and testing error curves  
 
 **File:** `bias_variance_demo.py`
+
+---
+
+## 📅 Day 10 – Decision Trees
+- Learned tree-based classification  
+- Understood feature-based splitting  
+- Visualized decision tree structure  
+- Observed impact of tree depth on overfitting  
+
+**File:** `decision_tree_demo.py`
