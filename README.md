@@ -104,3 +104,14 @@ This repository documents my step-by-step practical learning of Artificial Intel
 - Observed impact of tree depth on overfitting  
 
 **File:** `decision_tree_demo.py`
+
+---
+
+## 📅 Day 11 – Random Forest
+- Learned ensemble learning concept  
+- Implemented Random Forest classifier  
+- Compared stability with Decision Tree  
+- Visualized feature importance  
+- Understood variance reduction through averaging  
+
+**File:** `random_forest_demo.py`
