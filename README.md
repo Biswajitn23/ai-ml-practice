@@ -115,3 +115,14 @@ This repository documents my step-by-step practical learning of Artificial Intel
 - Understood variance reduction through averaging  
 
 **File:** `random_forest_demo.py`
+
+---
+
+## 📅 Day 12 – ROC Curve & AUC
+- Learned limitations of accuracy  
+- Used probability-based prediction  
+- Implemented ROC curve  
+- Calculated AUC score  
+- Evaluated model discrimination ability  
+
+**File:** `roc_auc_demo.py`
