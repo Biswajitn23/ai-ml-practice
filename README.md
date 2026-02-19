@@ -126,3 +126,13 @@ This repository documents my step-by-step practical learning of Artificial Intel
 - Evaluated model discrimination ability  
 
 **File:** `roc_auc_demo.py`
+
+---
+
+## 📅 Day 13 – Precision, Recall & F1 Score
+- Learned confusion matrix components  
+- Implemented precision and recall  
+- Calculated F1 score  
+- Understood trade-offs between precision and recall  
+
+**File:** `precision_recall_demo.py`
