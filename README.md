@@ -136,3 +136,15 @@ This repository documents my step-by-step practical learning of Artificial Intel
 - Understood trade-offs between precision and recall  
 
 **File:** `precision_recall_demo.py`
+
+---
+
+## 📅 Day 14 – Save & Load ML Model
+- Trained Random Forest model  
+- Saved trained model using joblib  
+- Loaded saved model for prediction  
+- Learned basics of ML deployment workflow  
+
+**Files:**  
+- `save_model_demo.py`  
+- `load_model_demo.py`
