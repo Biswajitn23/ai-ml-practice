@@ -148,3 +148,13 @@ This repository documents my step-by-step practical learning of Artificial Intel
 **Files:**  
 - `save_model_demo.py`  
 - `load_model_demo.py`
+
+---
+
+## 📅 Day 15 – ML API with Flask
+- Built Flask API for ML model  
+- Loaded saved Random Forest model  
+- Created prediction endpoint  
+- Tested prediction using JSON input  
+
+**File:** `app.py`
