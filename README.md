@@ -158,3 +158,13 @@ This repository documents my step-by-step practical learning of Artificial Intel
 - Tested prediction using JSON input  
 
 **File:** `app.py`
+
+---
+
+## 📅 Day 16 – Deploy ML API Online
+- Prepared Flask API for deployment  
+- Added requirements and Procfile  
+- Deployed ML model API on Render  
+- Tested prediction using online endpoint  
+
+**Deployment:** Render
