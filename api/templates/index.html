@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ML Prediction App</title>
+</head>
+<body>
+    <h2>Breast Cancer Prediction</h2>
+
+    <form action="/predict_ui" method="post">
+        <textarea name="features" rows="5" cols="60"
+        placeholder="Enter 30 comma-separated values"></textarea>
+        <br><br>
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction %}
+        <h3>Prediction: {{ prediction }}</h3>
+    {% endif %}
+</body>
+</html>
