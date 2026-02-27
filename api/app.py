@@ -13,8 +13,8 @@ def home():
 def predict():
     try:
         data = request.json["features"]
-        prediction = model.predict([data])
-        return jsonify({"prediction": int(prediction[0])})
+        prediction = model.predict([data])[0]
+        return jsonify({"prediction": int(prediction)})
     except Exception as e:
         return jsonify({"error": str(e)})
 
@@ -25,13 +25,26 @@ def predict_ui():
         features = [float(x.strip()) for x in features.split(",")]
 
         if len(features) != 30:
-            return render_template("index.html", prediction="Please enter exactly 30 values")
+            return render_template(
+                "index.html",
+                prediction="Please enter exactly 30 comma-separated values"
+            )
 
-        prediction = model.predict([features])
-        return render_template("index.html", prediction=prediction[0])
+        prediction = model.predict([features])[0]
+
+        label = (
+            "Benign (Non-Cancerous)"
+            if prediction == 1
+            else "Malignant (Cancerous)"
+        )
+
+        return render_template("index.html", prediction=label)
 
     except Exception as e:
-        return render_template("index.html", prediction=f"Error: {str(e)}")
+        return render_template(
+            "index.html",
+            prediction=f"Error: {str(e)}"
+        )
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)

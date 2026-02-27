@@ -1,20 +1,61 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ML Prediction App</title>
+    <title>Breast Cancer Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            text-align: center;
+            padding: 40px;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 60%;
+            margin: auto;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        textarea {
+            width: 90%;
+            padding: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <h2>Breast Cancer Prediction</h2>
+    <div class="container">
+        <h2>Breast Cancer Prediction App</h2>
+        <p>Enter 30 comma-separated values</p>
 
-    <form action="/predict_ui" method="post">
-        <textarea name="features" rows="5" cols="60"
-        placeholder="Enter 30 comma-separated values"></textarea>
-        <br><br>
-        <button type="submit">Predict</button>
-    </form>
+        <form action="/predict_ui" method="post">
+            <textarea name="features" rows="4"
+            placeholder="17.99,10.38,122.8,1001,..."></textarea>
+            <br><br>
+            <button type="submit">Predict</button>
+        </form>
 
-    {% if prediction %}
-        <h3>Prediction: {{ prediction }}</h3>
-    {% endif %}
+        {% if prediction %}
+        <div class="result">
+            Result: {{ prediction }}
+        </div>
+        {% endif %}
+    </div>
 </body>
 </html>
