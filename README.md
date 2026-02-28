@@ -168,3 +168,24 @@ This repository documents my step-by-step practical learning of Artificial Intel
 - Tested prediction using online endpoint  
 
 **Deployment:** Render
+
+---
+
+## 📅 Day 17 – Add Web UI
+- Created HTML interface  
+- Connected frontend form with ML backend  
+
+---
+
+## 📅 Day 18 – Improved UI & Labels
+- Styled UI  
+- Converted prediction output to readable medical labels  
+
+---
+
+## 📅 Day 19 – Structured Input Fields
+- Replaced textarea with 30 numeric input fields  
+- Improved validation  
+- Created full-stack ML web app  
+
+---
