@@ -13,13 +13,18 @@
             background: white;
             padding: 30px;
             border-radius: 10px;
-            width: 60%;
+            width: 80%;
             margin: auto;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
-        textarea {
-            width: 90%;
-            padding: 10px;
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        input {
+            padding: 5px;
         }
         button {
             padding: 10px 20px;
@@ -28,9 +33,6 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-        }
-        button:hover {
-            background: #45a049;
         }
         .result {
             margin-top: 20px;
@@ -42,12 +44,13 @@
 <body>
     <div class="container">
         <h2>Breast Cancer Prediction App</h2>
-        <p>Enter 30 comma-separated values</p>
 
         <form action="/predict_ui" method="post">
-            <textarea name="features" rows="4"
-            placeholder="17.99,10.38,122.8,1001,..."></textarea>
-            <br><br>
+            <div class="grid">
+                {% for i in range(30) %}
+                    <input type="number" step="any" name="f{{i}}" placeholder="Feature {{i+1}}" required>
+                {% endfor %}
+            </div>
             <button type="submit">Predict</button>
         </form>
 
