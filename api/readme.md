@@ -38,8 +38,10 @@ The trained model is serialized using Joblib and loaded inside the Flask backend
 ## 📸 Screenshots
 
 ### 🔹 Web Interface
-![UI Screenshot](images/interface.png)
-(images/api_response.png)
+<p align="center">
+  <img src="images/interface.png" width="49%">
+  <img src="images/web_interface.png" width="49%">
+</p>
 
 ### 🔹 Prediction Result
 ![Prediction Screenshot](images/result.png)
