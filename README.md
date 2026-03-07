@@ -189,3 +189,25 @@ This repository documents my step-by-step practical learning of Artificial Intel
 - Created full-stack ML web app  
 
 ---
+
+## 📅 Day 20 – Portfolio-Level Documentation
+- Improved project documentation
+- Added professional README structure
+- Included screenshots and architecture description
+- Organized project for better readability and presentation
+
+---
+
+## 📅 Day 21 – Professional README Enhancements
+- Added project badges (Python, Flask, ML, Deployment)
+- Improved project description
+- Added live demo and feature highlights
+- Structured documentation for portfolio presentation
+
+---
+
+## 📅 Day 22 – Prediction Confidence Score
+- Added probability prediction using `predict_proba`
+- Returned confidence score in API response
+- Displayed prediction confidence in UI
+- Improved model inference output
