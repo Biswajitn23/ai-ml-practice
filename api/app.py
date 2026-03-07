@@ -8,7 +8,7 @@ model = joblib.load("rf_model.pkl")
 
 
 # -------------------------
-# Home Route (UI)
+# Home Route (Web UI)
 # -------------------------
 @app.route("/")
 def home():
@@ -16,17 +16,19 @@ def home():
 
 
 # -------------------------
-# API Route (Postman / Thunder Client)
+# API Endpoint
 # -------------------------
 @app.route("/predict", methods=["POST"])
 def predict():
     try:
         data = request.json["features"]
 
+        # Validate input length
         if len(data) != 30:
             return jsonify({"error": "Exactly 30 features required"})
 
         prediction = model.predict([data])[0]
+        probability = model.predict_proba([data])[0][prediction]
 
         label = (
             "Benign (Non-Cancerous)"
@@ -36,7 +38,8 @@ def predict():
 
         return jsonify({
             "prediction": label,
-            "class": int(prediction)
+            "class": int(prediction),
+            "confidence": round(float(probability), 4)
         })
 
     except Exception as e:
@@ -44,7 +47,7 @@ def predict():
 
 
 # -------------------------
-# UI Form Route
+# UI Form Prediction
 # -------------------------
 @app.route("/predict_ui", methods=["POST"])
 def predict_ui():
@@ -56,6 +59,7 @@ def predict_ui():
             features.append(value)
 
         prediction = model.predict([features])[0]
+        probability = model.predict_proba([features])[0][prediction]
 
         label = (
             "Benign (Non-Cancerous)"
@@ -63,7 +67,11 @@ def predict_ui():
             else "Malignant (Cancerous)"
         )
 
-        return render_template("index.html", prediction=label)
+        confidence = round(float(probability) * 100, 2)
+
+        result = f"{label} (Confidence: {confidence}%)"
+
+        return render_template("index.html", prediction=result)
 
     except Exception as e:
         return render_template(
@@ -73,7 +81,7 @@ def predict_ui():
 
 
 # -------------------------
-# Run Server
+# Run Flask Server
 # -------------------------
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)
