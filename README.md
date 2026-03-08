@@ -211,3 +211,12 @@ This repository documents my step-by-step practical learning of Artificial Intel
 - Returned confidence score in API response
 - Displayed prediction confidence in UI
 - Improved model inference output
+
+---
+
+## 📅 Day 23 – API Documentation with Swagger
+
+- Integrated Swagger UI using **Flasgger**
+- Generated interactive API documentation
+- Enabled testing API endpoints directly from the browser
+- Improved developer experience for API usage
