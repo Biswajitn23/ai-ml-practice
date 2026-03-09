@@ -220,3 +220,18 @@ This repository documents my step-by-step practical learning of Artificial Intel
 - Generated interactive API documentation
 - Enabled testing API endpoints directly from the browser
 - Improved developer experience for API usage
+### Endpoint
+
+GET `/api-docs`
+
+---
+
+## 📅 Day 24 – Feature Importance API
+
+- Extracted feature importance from the trained **Random Forest model**
+- Added API endpoint to expose feature importance
+- Enabled model interpretability for understanding important features
+- Returned sorted importance values in JSON format
+### Endpoint
+
+GET `/feature-importance`
