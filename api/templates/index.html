@@ -2,6 +2,9 @@
 <html>
 <head>
     <title>Breast Cancer Prediction</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -9,56 +12,132 @@
             text-align: center;
             padding: 40px;
         }
+
         .container {
             background: white;
             padding: 30px;
             border-radius: 10px;
-            width: 80%;
+            width: 85%;
             margin: auto;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
+
         .grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             gap: 10px;
             margin-bottom: 20px;
         }
+
         input {
-            padding: 5px;
+            padding: 6px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
+
         button {
-            padding: 10px 20px;
+            padding: 12px 25px;
             background: #4CAF50;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 16px;
         }
+
+        button:hover {
+            background: #45a049;
+        }
+
         .result {
-            margin-top: 20px;
-            font-size: 18px;
+            margin-top: 25px;
+            font-size: 20px;
             font-weight: bold;
+            color: #333;
         }
+
+        .chart-container {
+            margin-top: 40px;
+        }
+
     </style>
 </head>
+
+
 <body>
-    <div class="container">
-        <h2>Breast Cancer Prediction App</h2>
 
-        <form action="/predict_ui" method="post">
-            <div class="grid">
-                {% for i in range(30) %}
-                    <input type="number" step="any" name="f{{i}}" placeholder="Feature {{i+1}}" required>
-                {% endfor %}
-            </div>
-            <button type="submit">Predict</button>
-        </form>
+<div class="container">
 
-        {% if prediction %}
-        <div class="result">
-            Result: {{ prediction }}
+    <h2>Breast Cancer Prediction App</h2>
+    <p>Enter the 30 medical features below</p>
+
+    <form action="/predict_ui" method="post">
+        <div class="grid">
+            {% for i in range(30) %}
+                <input type="number"
+                       step="any"
+                       name="f{{i}}"
+                       placeholder="Feature {{i+1}}"
+                       required>
+            {% endfor %}
         </div>
-        {% endif %}
+
+        <button type="submit">Predict</button>
+    </form>
+
+
+    {% if prediction %}
+    <div class="result">
+        Result: {{ prediction }}
     </div>
+    {% endif %}
+
+
+    <div class="chart-container">
+        <h3>Feature Importance</h3>
+        <canvas id="importanceChart"></canvas>
+    </div>
+
+</div>
+
+
+<script>
+
+fetch('/feature-importance')
+.then(response => response.json())
+.then(data => {
+
+    const labels = data.feature_importance.map(f => f.feature);
+    const values = data.feature_importance.map(f => f.importance);
+
+    const ctx = document.getElementById('importanceChart').getContext('2d');
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Feature Importance',
+                data: values,
+                backgroundColor: 'rgba(75,192,192,0.6)'
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { display: true }
+            },
+            scales: {
+                x: {
+                    ticks: { display: false }
+                }
+            }
+        }
+    });
+
+});
+
+</script>
+
 </body>
 </html>

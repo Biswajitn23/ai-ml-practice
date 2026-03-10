@@ -221,7 +221,6 @@ This repository documents my step-by-step practical learning of Artificial Intel
 - Enabled testing API endpoints directly from the browser
 - Improved developer experience for API usage
 ### Endpoint
-
 GET `/api-docs`
 
 ---
@@ -233,5 +232,12 @@ GET `/api-docs`
 - Enabled model interpretability for understanding important features
 - Returned sorted importance values in JSON format
 ### Endpoint
-
 GET `/feature-importance`
+
+---
+
+## 📅 Day 25 – Feature Importance Visualization
+
+- Added feature importance chart using Chart.js
+- Visualized model interpretability in the web interface
+- API data is now rendered as a dynamic chart
