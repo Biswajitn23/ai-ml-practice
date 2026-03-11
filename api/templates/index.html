@@ -1,66 +1,79 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Breast Cancer Prediction</title>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<title>Breast Cancer Prediction</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f6f9;
-            text-align: center;
-            padding: 40px;
-        }
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-        .container {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            width: 85%;
-            margin: auto;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
+<style>
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 10px;
-            margin-bottom: 20px;
-        }
+body {
+    font-family: Arial;
+    background: #f4f6f9;
+    text-align: center;
+    padding: 40px;
+}
 
-        input {
-            padding: 6px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 85%;
+    margin: auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
 
-        button {
-            padding: 12px 25px;
-            background: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
 
-        button:hover {
-            background: #45a049;
-        }
+input {
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
 
-        .result {
-            margin-top: 25px;
-            font-size: 20px;
-            font-weight: bold;
-            color: #333;
-        }
+button {
+    padding: 12px 25px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
-        .chart-container {
-            margin-top: 40px;
-        }
+button:hover {
+    background: #45a049;
+}
 
-    </style>
+.result {
+    margin-top: 25px;
+}
+
+.confidence-bar {
+    width: 60%;
+    height: 20px;
+    background: #ddd;
+    border-radius: 10px;
+    margin: 10px auto;
+    overflow: hidden;
+}
+
+.confidence-fill {
+    height: 100%;
+    transition: width 0.5s;
+}
+
+.chart-container {
+    margin-top: 40px;
+}
+
+</style>
+
 </head>
 
 
@@ -68,73 +81,176 @@
 
 <div class="container">
 
-    <h2>Breast Cancer Prediction App</h2>
-    <p>Enter the 30 medical features below</p>
+<h2>Breast Cancer Prediction App</h2>
 
-    <form action="/predict_ui" method="post">
-        <div class="grid">
-            {% for i in range(30) %}
-                <input type="number"
-                       step="any"
-                       name="f{{i}}"
-                       placeholder="Feature {{i+1}}"
-                       required>
-            {% endfor %}
-        </div>
+<p>Enter the 30 medical features below</p>
 
-        <button type="submit">Predict</button>
-    </form>
+<form action="/predict_ui" method="post">
 
+<div class="grid">
 
-    {% if prediction %}
-    <div class="result">
-        Result: {{ prediction }}
-    </div>
-    {% endif %}
+{% for i in range(30) %}
 
+<input
+type="number"
+step="any"
+name="f{{i}}"
+placeholder="Feature {{i+1}}"
+required>
 
-    <div class="chart-container">
-        <h3>Feature Importance</h3>
-        <canvas id="importanceChart"></canvas>
-    </div>
+{% endfor %}
 
 </div>
 
+<button type="submit">Predict</button>
 
+</form>
+
+
+{% if prediction %}
+
+<div class="result">
+
+<h3 style="color:{% if prediction=='Benign' %}green{% else %}red{% endif %};">
+
+Prediction: {{ prediction }}
+
+</h3>
+
+<p>Confidence: {{ confidence }}%</p>
+
+<div class="confidence-bar">
+
+<div
+class="confidence-fill"
+style="width:{{ confidence }}%;
+background:{% if prediction=='Benign' %}green{% else %}red{% endif %};">
+
+</div>
+
+</div>
+
+</div>
+
+{% endif %}
+
+
+<div class="chart-container">
+
+</div>
+<h3>Feature Importance</h3>
+<canvas id="importanceChart"></canvas>
+<div id="featureValues" style="margin-top:10px;"></div>
+<div id="debugMsg" style="color:red;margin-top:10px;"></div>
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
+document.addEventListener('DOMContentLoaded', function() {
+    fetch('/feature-importance')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('HTTP error ' + response.status);
+        }
+        return response.json();
+    })
+    .then(data => {
+        const labels = data.feature_importance.map(f => f.feature);
+        const values = data.feature_importance.map(f => f.importance);
 
-fetch('/feature-importance')
-.then(response => response.json())
-.then(data => {
+        // Get user input features from Jinja2 context
+        let inputFeatures = [];
+        try {
+            inputFeatures = {{ input_features|tojson|safe }};
+        } catch (e) {
+            inputFeatures = [];
+        }
 
-    const labels = data.feature_importance.map(f => f.feature);
-    const values = data.feature_importance.map(f => f.importance);
+        // Highlight color for user input
+        const highlightColor = 'rgba(255,99,132,0.8)';
+        const defaultColor = 'rgba(75,192,192,0.6)';
+        let barColors = Array(values.length).fill(defaultColor);
 
-    const ctx = document.getElementById('importanceChart').getContext('2d');
+        // Show input values below the chart
+        if (inputFeatures && inputFeatures.length === values.length) {
+            document.getElementById('featureValues').innerHTML =
+                '<b>Input Values:</b> ' + inputFeatures.map((v, i) => `Feature ${i+1}: <span style="color:#333">${v}</span>`).join(' | ');
+            barColors = inputFeatures.map(() => highlightColor);
+        } else {
+            document.getElementById('featureValues').innerHTML = '';
+        }
 
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: labels,
-            datasets: [{
-                label: 'Feature Importance',
-                data: values,
-                backgroundColor: 'rgba(75,192,192,0.6)'
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: { display: true }
+        try {
+            const ctx = document.getElementById('importanceChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Feature Importance',
+                        data: values,
+                        backgroundColor: barColors
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        x: { ticks: { display: false } }
+                    }
+                }
+            });
+        } catch (chartErr) {
+            document.getElementById('debugMsg').innerText = 'Chart.js error: ' + chartErr;
+        }
+    })
+    .catch(err => {
+        document.getElementById('importanceChart').style.display = 'none';
+        document.getElementById('featureValues').innerHTML = '<span style="color:red">Could not load feature importance graph.</span>';
+        document.getElementById('debugMsg').innerText = 'Fetch error: ' + err;
+    });
+});
+</script>
+    let barColors = Array(values.length).fill(defaultColor);
+
+    // Show input values below the chart
+    if (inputFeatures && inputFeatures.length === values.length) {
+        document.getElementById('featureValues').innerHTML =
+            '<b>Input Values:</b> ' + inputFeatures.map((v, i) => `Feature ${i+1}: <span style=\"color:#333\">${v}</span>`).join(' | ');
+        barColors = inputFeatures.map(() => highlightColor);
+    } else {
+        document.getElementById('featureValues').innerHTML = '';
+    }
+
+    try {
+        const ctx = document.getElementById('importanceChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Feature Importance',
+                    data: values,
+                    backgroundColor: barColors
+                }]
             },
-            scales: {
-                x: {
-                    ticks: { display: false }
+            options: {
+                responsive: true,
+                scales: {
+                    x: { ticks: { display: false } }
                 }
             }
-        }
-    });
-
+        });
+    } catch (chartErr) {
+        document.getElementById('debugMsg').innerText = 'Chart.js error: ' + chartErr;
+    }
+})
+.catch(err => {
+    document.getElementById('importanceChart').style.display = 'none';
+    document.getElementById('featureValues').innerHTML = '<span style="color:red">Could not load feature importance graph.</span>';
+    document.getElementById('debugMsg').innerText = 'Fetch error: ' + err;
+});
 });
 
 </script>

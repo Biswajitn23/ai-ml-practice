@@ -238,6 +238,15 @@ GET `/feature-importance`
 
 ## 📅 Day 25 – Feature Importance Visualization
 
-- Added feature importance chart using Chart.js
-- Visualized model interpretability in the web interface
-- API data is now rendered as a dynamic chart
+- Added feature importance visualization using **Chart.js**
+- Integrated frontend chart with backend `/feature-importance` API
+- Displayed model interpretability directly in the web interface
+- Allowed users to visually understand which features influence predictions
+
+---
+
+## 📅 Day 26 – Prediction Confidence Visualization
+
+- Added prediction confidence score to the UI
+- Implemented a **confidence progress bar**
+- Added **color-coded prediction results**

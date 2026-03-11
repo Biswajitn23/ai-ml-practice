@@ -14,7 +14,7 @@ model = joblib.load("rf_model.pkl")
 # -------------------------
 @app.route("/")
 def home():
-    return render_template("index.html")
+    return render_template("index.html", input_features=[])
 
 
 # -------------------------
@@ -51,11 +51,7 @@ def predict():
         prediction = model.predict([data])[0]
         probability = model.predict_proba([data])[0][prediction]
 
-        label = (
-            "Benign (Non-Cancerous)"
-            if prediction == 1
-            else "Malignant (Cancerous)"
-        )
+        label = "Benign" if prediction == 1 else "Malignant"
 
         return jsonify({
             "prediction": label,
@@ -82,22 +78,21 @@ def predict_ui():
         prediction = model.predict([features])[0]
         probability = model.predict_proba([features])[0][prediction]
 
-        label = (
-            "Benign (Non-Cancerous)"
-            if prediction == 1
-            else "Malignant (Cancerous)"
-        )
-
+        label = "Benign" if prediction == 1 else "Malignant"
         confidence = round(float(probability) * 100, 2)
 
-        result = f"{label} (Confidence: {confidence}%)"
-
-        return render_template("index.html", prediction=result)
+        return render_template(
+            "index.html",
+            prediction=label,
+            confidence=confidence,
+            input_features=features
+        )
 
     except Exception as e:
         return render_template(
             "index.html",
-            prediction=f"Error: {str(e)}"
+            prediction=f"Error: {str(e)}",
+            input_features=[]
         )
 
 
