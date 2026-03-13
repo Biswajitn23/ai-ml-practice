@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
 <title>Breast Cancer Prediction</title>
@@ -149,7 +150,7 @@ background:{% if prediction=='Benign' %}green{% else %}red{% endif %};">
 
 <div class="chart-container">
 
-<h3>Feature Importance</h3>
+<h3>Top 10 Feature Importance</h3>
 
 <canvas id="importanceChart"></canvas>
 
@@ -193,23 +194,26 @@ const values=data.feature_importance.map(f=>f.importance);
 const ctx=document.getElementById('importanceChart').getContext('2d');
 
 new Chart(ctx,{
+
 type:'bar',
+
 data:{
 labels:labels,
 datasets:[{
-label:'Feature Importance',
+label:'Top 10 Feature Importance',
 data:values,
 backgroundColor:'rgba(75,192,192,0.6)'
 }]
 },
+
 options:{
+indexAxis:'y',
 responsive:true,
-scales:{
-x:{
-ticks:{display:false}
+plugins:{
+legend:{display:true}
 }
 }
-}
+
 });
 
 });
