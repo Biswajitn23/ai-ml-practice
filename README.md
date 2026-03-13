@@ -250,3 +250,20 @@ GET `/feature-importance`
 - Added prediction confidence score to the UI
 - Implemented a **confidence progress bar**
 - Added **color-coded prediction results**
+
+---
+
+## 📅 Day 27 – Prediction History Dashboard
+
+- Implemented prediction history logging
+- Displayed previous predictions in the UI
+- Added timestamp tracking
+- Created a simple monitoring dashboard
+
+---
+
+## 📅 Day 28 – Top-10 Feature Importance Chart
+
+- Improved feature importance visualization
+- Displayed only the top 10 most important features
+- Converted chart to horizontal bar chart for better readability
