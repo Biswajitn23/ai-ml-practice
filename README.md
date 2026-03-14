@@ -270,23 +270,11 @@ GET `/feature-importance`
 
 ---
 
-## 📅 Day 29 – Docker Deployment
+## 📅 Day 29 – System Monitoring Endpoint
 
-- Containerized the ML application using Docker
-- Created Dockerfile for environment consistency
-- Added .dockerignore for optimized image size
-- Enabled one-command application deployment
-
-### Build Docker Image
-```docker build -t breast-cancer-ml-app .```
-
-
-### Run Container
-```docker run -p 10000:10000 breast-cancer-ml-app```
-
-
-The application will be available at:
-http://localhost:10000
+- Added `/health` endpoint for monitoring application status
+- Returned system status, model name, and prediction count
+- Enables quick health checks for the deployed ML service
 
 ---
 
