@@ -267,3 +267,26 @@ GET `/feature-importance`
 - Improved feature importance visualization
 - Displayed only the top 10 most important features
 - Converted chart to horizontal bar chart for better readability
+
+---
+
+## 📅 Day 29 – Docker Deployment
+
+- Containerized the ML application using Docker
+- Created Dockerfile for environment consistency
+- Added .dockerignore for optimized image size
+- Enabled one-command application deployment
+
+### Build Docker Image
+```docker build -t breast-cancer-ml-app .```
+
+
+### Run Container
+```docker run -p 10000:10000 breast-cancer-ml-app```
+
+
+The application will be available at:
+http://localhost:10000
+
+---
+

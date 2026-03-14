@@ -1,25 +1,21 @@
 from flask import Flask, request, jsonify, render_template
 from flasgger import Swagger
 import joblib
+from datetime import datetime
 
 app = Flask(__name__)
 swagger = Swagger(app)
 
-# Load trained model
 model = joblib.load("rf_model.pkl")
 
+prediction_history = []
 
-# -------------------------
-# Home Page
-# -------------------------
+
 @app.route("/")
 def home():
-    return render_template("index.html", input_features=[])
+    return render_template("index.html", history=prediction_history)
 
 
-# -------------------------
-# API Prediction Endpoint
-# -------------------------
 @app.route("/predict", methods=["POST"])
 def predict():
     """
@@ -36,7 +32,6 @@ def predict():
               type: array
               items:
                 type: number
-              example: [17.99,10.38,122.8,1001]
     responses:
       200:
         description: Prediction result
@@ -63,12 +58,11 @@ def predict():
         return jsonify({"error": str(e)})
 
 
-# -------------------------
-# UI Prediction Route
-# -------------------------
 @app.route("/predict_ui", methods=["POST"])
 def predict_ui():
+
     try:
+
         features = []
 
         for i in range(30):
@@ -81,27 +75,32 @@ def predict_ui():
         label = "Benign" if prediction == 1 else "Malignant"
         confidence = round(float(probability) * 100, 2)
 
+        prediction_history.append({
+            "prediction": label,
+            "confidence": confidence,
+            "time": datetime.now().strftime("%H:%M:%S")
+        })
+
         return render_template(
             "index.html",
             prediction=label,
             confidence=confidence,
-            input_features=features
+            history=prediction_history
         )
 
     except Exception as e:
         return render_template(
             "index.html",
             prediction=f"Error: {str(e)}",
-            input_features=[]
+            history=prediction_history
         )
 
 
-# -------------------------
-# Feature Importance API
-# -------------------------
 @app.route("/feature-importance", methods=["GET"])
 def feature_importance():
+
     try:
+
         importances = model.feature_importances_
 
         features = [
@@ -109,7 +108,7 @@ def feature_importance():
             for i, val in enumerate(importances)
         ]
 
-        features = sorted(features, key=lambda x: x["importance"], reverse=True)
+        features = sorted(features, key=lambda x: x["importance"], reverse=True)[:10]
 
         return jsonify({
             "model": "RandomForestClassifier",
@@ -120,8 +119,13 @@ def feature_importance():
         return jsonify({"error": str(e)})
 
 
-# -------------------------
-# Run Server
-# -------------------------
+@app.route("/health")
+def health():
+    return {
+        "status": "running",
+        "model": "RandomForestClassifier",
+        "predictions_made": len(prediction_history)
+    }
+    
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)
