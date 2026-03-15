@@ -126,6 +126,16 @@ def health():
         "model": "RandomForestClassifier",
         "predictions_made": len(prediction_history)
     }
+
+@app.route("/model-info")
+def model_info():
+    return {
+        "model_name": "Breast Cancer Classifier",
+        "algorithm": "RandomForestClassifier",
+        "library": "Scikit-Learn",
+        "input_features": 30,
+        "problem_type": "Binary Classification"
+    }
     
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)

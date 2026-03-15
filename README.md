@@ -278,3 +278,18 @@ GET `/feature-importance`
 
 ---
 
+## 📅 Day 30 – Model Information Endpoint
+
+- Added `/model-info` endpoint
+- Returns details about the deployed machine learning model
+- Helps developers understand model configuration
+
+Example response:
+
+{
+  "model_name": "Breast Cancer Classifier",
+  "algorithm": "RandomForestClassifier",
+  "library": "Scikit-Learn",
+  "input_features": 30,
+  "problem_type": "Binary Classification"
+}
