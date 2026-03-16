@@ -293,3 +293,13 @@ Example response:
   "input_features": 30,
   "problem_type": "Binary Classification"
 }
+
+---
+
+## 📅 Day 31 – Feature Importance Analysis
+
+- Extracted feature importance values from Random Forest model
+- Ranked features based on their contribution to predictions
+- Displayed the top important features for model interpretation
+
+File: `feature_importance_demo.py`
