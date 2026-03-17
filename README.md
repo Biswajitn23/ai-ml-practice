@@ -303,3 +303,13 @@ Example response:
 - Displayed the top important features for model interpretation
 
 File: `feature_importance_demo.py`
+
+---
+
+## 📅 Day 32 – PCA (Dimensionality Reduction)
+
+- Applied Principal Component Analysis (PCA) for dimensionality reduction
+- Reduced high-dimensional data into 2 principal components
+- Visualized data in 2D space for better understanding
+
+File: `pca_demo.py`
