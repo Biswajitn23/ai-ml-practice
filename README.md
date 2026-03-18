@@ -313,3 +313,13 @@ File: `feature_importance_demo.py`
 - Visualized data in 2D space for better understanding
 
 File: `pca_demo.py`
+
+---
+
+## 📅 Day 33 – K-Means Clustering
+
+- Implemented K-Means clustering for unsupervised learning
+- Grouped data points into clusters without labels
+- Visualized clusters and centroid positions
+
+File: `kmeans_demo.py`
