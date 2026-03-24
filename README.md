@@ -323,3 +323,13 @@ File: `pca_demo.py`
 - Visualized clusters and centroid positions
 
 File: `kmeans_demo.py`
+
+---
+
+## 📅 Day 34 – Elbow Method for Optimal Clusters
+
+- Implemented elbow method to determine optimal number of clusters  
+- Plotted inertia vs number of clusters  
+- Identified best K value visually  
+
+File: `elbow_method_demo.py`
