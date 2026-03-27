@@ -333,3 +333,13 @@ File: `kmeans_demo.py`
 - Identified best K value visually  
 
 File: `elbow_method_demo.py`
+
+---
+
+## 📅 Day 35 – Gradient Boosting
+
+- Implemented Gradient Boosting classifier  
+- Learned boosting concept using weak learners  
+- Evaluated model performance on dataset  
+
+File: `gradient_boosting_demo.py`
