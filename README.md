@@ -343,3 +343,13 @@ File: `elbow_method_demo.py`
 - Evaluated model performance on dataset  
 
 File: `gradient_boosting_demo.py`
+
+---
+
+## 📅 Day 36 – Hyperparameter Tuning with GridSearchCV
+
+- Used GridSearchCV for automatic hyperparameter tuning  
+- Tested multiple parameter combinations  
+- Selected best model based on performance  
+
+File: `grid_search_demo.py`
