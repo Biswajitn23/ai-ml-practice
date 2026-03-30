@@ -353,3 +353,13 @@ File: `gradient_boosting_demo.py`
 - Selected best model based on performance  
 
 File: `grid_search_demo.py`
+
+---
+
+## 📅 Day 37 – Pipeline + Hyperparameter Tuning
+
+- Combined preprocessing and model using Pipeline  
+- Integrated GridSearchCV with pipeline  
+- Ensured consistent data preprocessing during tuning  
+
+File: `pipeline_gridsearch_demo.py`
