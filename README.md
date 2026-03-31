@@ -363,3 +363,13 @@ File: `grid_search_demo.py`
 - Ensured consistent data preprocessing during tuning  
 
 File: `pipeline_gridsearch_demo.py`
+
+---
+
+## 📅 Day 38 – Advanced Model Comparison
+
+- Compared multiple ML models in a single script  
+- Evaluated Logistic Regression, Random Forest, and Gradient Boosting  
+- Displayed accuracy for each model  
+
+File: `advanced_model_comparison.py`
