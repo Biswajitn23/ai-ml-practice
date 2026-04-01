@@ -373,3 +373,13 @@ File: `pipeline_gridsearch_demo.py`
 - Displayed accuracy for each model  
 
 File: `advanced_model_comparison.py`
+
+---
+
+## 📅 Day 39 – Confusion Matrix Visualization
+
+- Visualized confusion matrix using heatmap  
+- Improved interpretability of classification results  
+- Used seaborn for better visualization  
+
+File: `confusion_matrix_visualization.py`
