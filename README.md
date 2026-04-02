@@ -383,3 +383,13 @@ File: `advanced_model_comparison.py`
 - Used seaborn for better visualization  
 
 File: `confusion_matrix_visualization.py`
+
+---
+
+## 📅 Day 40 – Learning Curve Analysis
+
+- Generated learning curves to analyze model performance  
+- Compared training and validation scores  
+- Identified overfitting and underfitting behavior  
+
+File: `learning_curve_demo.py`
