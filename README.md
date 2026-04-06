@@ -393,3 +393,14 @@ File: `confusion_matrix_visualization.py`
 - Identified overfitting and underfitting behavior  
 
 File: `learning_curve_demo.py`
+
+---
+
+## 📅 Day 41 – Project Setup (Student Performance Prediction)
+
+- Started end-to-end ML project  
+- Selected problem: Student Performance Prediction  
+- Loaded dataset and explored basic structure  
+- Prepared project folder structure  
+
+File: `project_setup.py`
