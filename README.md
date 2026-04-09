@@ -404,3 +404,14 @@ File: `learning_curve_demo.py`
 - Prepared project folder structure  
 
 File: `project_setup.py`
+
+---
+
+## 📅 Day 42 – Exploratory Data Analysis (EDA)
+
+- Performed EDA on student dataset  
+- Checked missing values and data types  
+- Visualized feature distributions  
+- Analyzed data patterns  
+
+File: `project_eda.py`
