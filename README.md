@@ -415,3 +415,13 @@ File: `project_setup.py`
 - Analyzed data patterns  
 
 File: `project_eda.py`
+
+---
+
+## 📅 Day 43 – Feature Engineering
+
+- Created new feature: Average marks  
+- Handled missing values using mean imputation  
+- Prepared dataset for model training  
+
+File: `feature_engineering.py`
