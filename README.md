@@ -425,3 +425,14 @@ File: `project_eda.py`
 - Prepared dataset for model training  
 
 File: `feature_engineering.py`
+
+---
+
+## 📅 Day 44 – Model Training
+
+- Converted average marks into classification labels  
+- Split dataset into training and testing sets  
+- Trained Logistic Regression model  
+- Generated predictions  
+
+File: `model_training.py`
