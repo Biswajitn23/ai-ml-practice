@@ -436,3 +436,14 @@ File: `feature_engineering.py`
 - Generated predictions  
 
 File: `model_training.py`
+
+---
+
+## 📅 Day 45 – Model Evaluation
+
+- Evaluated model using accuracy score  
+- Generated confusion matrix  
+- Calculated precision, recall, and F1 score  
+- Analyzed classification performance  
+
+File: `model_evaluation.py`
