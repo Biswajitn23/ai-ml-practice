@@ -447,3 +447,14 @@ File: `model_training.py`
 - Analyzed classification performance  
 
 File: `model_evaluation.py`
+
+---
+
+## 📅 Day 46 – Random Forest for Project
+
+- Implemented Random Forest classifier for project  
+- Compared performance with Logistic Regression  
+- Improved prediction stability  
+- Evaluated model accuracy  
+
+File: `random_forest_project.py`
