@@ -458,3 +458,14 @@ File: `model_evaluation.py`
 - Evaluated model accuracy  
 
 File: `random_forest_project.py`
+
+---
+
+## 📅 Day 47 – Hyperparameter Tuning for Project
+
+- Applied GridSearchCV for Random Forest tuning  
+- Tested different hyperparameter combinations  
+- Selected best-performing configuration  
+- Improved model performance  
+
+File: `project_hyperparameter_tuning.py`
