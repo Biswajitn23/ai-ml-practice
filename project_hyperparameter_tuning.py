@@ -24,7 +24,7 @@ params = {
     "max_depth": [3, 5, None]
 }
 
-grid = GridSearchCV(model, params, cv=3)
+grid = GridSearchCV(model, params, cv=2)
 
 grid.fit(X_train, y_train)
 
