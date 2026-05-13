@@ -469,3 +469,13 @@ File: `random_forest_project.py`
 - Improved model performance  
 
 File: `project_hyperparameter_tuning.py`
+
+---
+
+## 📅 Day 48 – Model Saving for Project
+
+- Saved trained Random Forest model using joblib  
+- Stored trained model for future predictions  
+- Learned persistence of ML models  
+
+File: `save_project_model.py`
