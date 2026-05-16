@@ -479,3 +479,13 @@ File: `project_hyperparameter_tuning.py`
 - Learned persistence of ML models  
 
 File: `save_project_model.py`
+
+---
+
+## 📅 Day 49 – Load Model & Predict
+
+- Loaded saved Random Forest model using joblib  
+- Used saved model for predictions  
+- Simulated inference workflow for deployment  
+
+File: `load_project_model.py`
