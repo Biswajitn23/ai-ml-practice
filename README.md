@@ -489,3 +489,14 @@ File: `save_project_model.py`
 - Simulated inference workflow for deployment  
 
 File: `load_project_model.py`
+
+---
+
+## 📅 Day 50 – Flask API for Student Prediction
+
+- Built Flask API for student performance prediction  
+- Loaded trained Random Forest model  
+- Created `/predict` endpoint for inference  
+- Returned predictions using JSON responses  
+
+File: `student_api.py`
