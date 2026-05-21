@@ -500,3 +500,14 @@ File: `load_project_model.py`
 - Returned predictions using JSON responses  
 
 File: `student_api.py`
+
+---
+
+## 📅 Day 51 – Introduction to Neural Networks
+
+- Built first Artificial Neural Network (ANN) using TensorFlow/Keras  
+- Learned basics of input, hidden, and output layers  
+- Trained neural network on breast cancer dataset  
+- Evaluated model accuracy  
+
+File: `neural_network_demo.py`
