@@ -511,3 +511,25 @@ File: `student_api.py`
 - Evaluated model accuracy  
 
 File: `neural_network_demo.py`
+
+---
+
+## 📅 Day 52 – Training Visualization for Neural Network
+
+- Visualized neural network training performance  
+- Plotted training and validation accuracy curves  
+- Observed learning behavior across epochs  
+- Learned basics of monitoring deep learning models  
+
+File: `nn_training_visualization.py`
+
+---
+
+## 📅 Day 53 – Dropout Regularization
+
+- Added Dropout layers to reduce overfitting  
+- Improved neural network generalization  
+- Learned regularization techniques in deep learning  
+- Compared training stability with dropout  
+
+File: `dropout_regularization_demo.py`

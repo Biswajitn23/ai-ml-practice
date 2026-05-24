@@ -1,7 +1,0 @@
-{
-  "python.defaultInterpreterPath": "c:/Users/Biswajit/Downloads/ai-ml-practice-main/ai-ml-practice-main/.venv/Scripts/python.exe",
-  "python.analysis.extraPaths": [
-    "./"
-  ],
-  "python.analysis.typeCheckingMode": "basic"
-}
