@@ -555,3 +555,14 @@ File: `early_stopping_demo.py`
 - Simulated deployment-ready inference process  
 
 File: `nn_model_save_load.py`
+
+---
+
+## 📅 Day 56 – Image Classification with MNIST
+
+- Introduced image classification using neural networks  
+- Loaded MNIST handwritten digit dataset  
+- Trained a neural network to recognize digits (0–9)  
+- Evaluated model accuracy on unseen images  
+
+File: `mnist_classification.py`
