@@ -566,3 +566,14 @@ File: `nn_model_save_load.py`
 - Evaluated model accuracy on unseen images  
 
 File: `mnist_classification.py`
+
+---
+
+## 📅 Day 57 – Convolutional Neural Networks (CNN)
+
+- Introduced Convolutional Neural Networks (CNNs)  
+- Applied convolution and pooling layers for image feature extraction  
+- Improved image classification performance over basic neural networks  
+- Trained CNN on MNIST handwritten digit dataset  
+
+File: `cnn_mnist_demo.py`
