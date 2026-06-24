@@ -577,3 +577,14 @@ File: `mnist_classification.py`
 - Trained CNN on MNIST handwritten digit dataset  
 
 File: `cnn_mnist_demo.py`
+
+---
+
+## 📅 Day 58 – Data Augmentation
+
+- Applied image augmentation techniques to training data  
+- Generated modified image variations automatically  
+- Reduced overfitting in CNN models  
+- Improved model robustness and generalization  
+
+File: `data_augmentation_demo.py`
