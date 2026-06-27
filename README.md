@@ -588,3 +588,14 @@ File: `cnn_mnist_demo.py`
 - Improved model robustness and generalization  
 
 File: `data_augmentation_demo.py`
+
+---
+
+## 📅 Day 59 – Transfer Learning with Pretrained Models
+
+- Introduced transfer learning using pretrained CNN models  
+- Used a pretrained model instead of training from scratch  
+- Leveraged learned image features from large datasets  
+- Reduced training time and improved performance  
+
+File: `transfer_learning_demo.py`
