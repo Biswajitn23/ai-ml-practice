@@ -599,3 +599,14 @@ File: `data_augmentation_demo.py`
 - Reduced training time and improved performance  
 
 File: `transfer_learning_demo.py`
+
+---
+
+## 📅 Day 60 – Cat vs Dog Image Classifier
+
+- Built an end-to-end image classification project  
+- Used transfer learning with a pretrained CNN model  
+- Classified images as Cat or Dog  
+- Created a complete computer vision workflow from training to prediction  
+
+File: `cat_dog_classifier.py`
